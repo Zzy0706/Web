@@ -1,262 +1,176 @@
+<!--
+ * @Author: Zzy
+ * @Date: 2022-06-14 15:01:38
+ * @LastEditTime: 2022-06-14 17:14:15
+ * @LastEditors: Zzy
+ * @Description: 
+ * @FilePath: /undefined/Users/zzy/Desktop/成果展示/成果展示.html
+ * Creat by Zzy
+-->
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 
-
-
-
-
-
-
-
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content>
-    <meta name="author" content="ZhangXu">
-    <meta name="keywords" content>
-    <title>Blog</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
-    
 </head>
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-<div class="container">
-    <a class="navbar-brand" href="/"><strong>Blog</strong></a>
+    <div id="app">
+        <el-carousel height="100vh" trigger="click" :autoplay="false" indicator-position="none" @change="onChange">
+            <el-carousel-item class="content-item" v-for="item in listData" :key="item">
+                <div class="title">{{item.title}}</div>
+                <div class="paint" @mousemove="onMouseMove">
+                    <div class="old_image">
+                        <img :src="item.oldUrl" alt="">
+                    </div>
+                    <div class="magicbox">
+                        <div class="new_image" :style="{'width':imgWidth+'%'}">
+                            <img style=" width: auto;" :src="item.newUrl" alt="">
+                        </div>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
+                    </div>
+                </div>
+            </el-carousel-item>
+        </el-carousel>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto text-center">
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/archives/">Archives</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/about/">About</a>
-            </li>
-            
-        </ul>
+
     </div>
-</div>
-
-
-</nav>
-    <div class="view intro-2" style='background: url("https://i.imgur.com/OHK1wWY.jpg")no-repeat center center;background-size: cover;'>
-    <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-        <div class="container text-center white-text wow fadeInUp">
-            <p class="h2"></p>
-            <br>
-            
-        </div>
-        </div>
-    </div>
-    </div>
-  </header>
-
-  <main>
-    
-  <div class="container">
-    <div class="py-5 z-depth-3 main">
-      
-      <div class="container">
-        <div class="row">
-          <div class="col-10 offset-1">
-            
-
-<div class="row mb-3">
-
-<div class="col-12 col-md-4 mb-3">
-    <a href="/2019/03/27/mt-loadmore加载后scrollTop不为0的坑/" style="background-image: url(https://i.imgur.com/nrFCOUB.jpg);" class="img-fluid rounded z-depth-3 post-thumbnails" target="_self"></a>
-</div>
-
-<div class="col-12 col-md-8 ">
-    <a href="/2019/03/27/mt-loadmore加载后scrollTop不为0的坑/" class="h4" style="font-weight: 700;">mt-loadmore加载后scrollTop不为0的坑</a>
-    
-      <p class="mb-1">mt-loadmore 加载后 scrollTop 不为 0 的坑
-最近使用 mt-loadmore 组件的时候发现每当页面第一次加载的时候，在 Safari 上老是会向上滑动 50px，尝试解决了多次都没有结果，最后发现页面首次加载数据的时候调用了下面的方法，此方法本来是用于上拉加载数据后对组件进行一些重新定位的操作。
-
-this.$refs.loadMore.onBottomLoaded()
-
-由于上拉加载会暴露底部的’mint-loadmore-bottom’控件，此控件高度刚好为 50px，所以使’mt-loadmore’上拉后回到原来的位置需要对组件偏移 50px，当没有上拉时调用此...</p>
-    
-    
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-27
-        &nbsp;
-        
-            <i class="iconfont icon-cc-tag-more"></i>
-            
-                mt-loadmore&nbsp;
-            
-        
-      </p>
-    
-</div>
-</div>
-
-<div class="row mb-3">
-
-<div class="col-12 col-md-4 mb-3">
-    <a href="/2019/03/21/blurclickmousedown/" style="background-image: url(https://source.unsplash.com/1920x1080););" class="img-fluid rounded z-depth-3 post-thumbnails" target="_self"></a>
-</div>
-
-<div class="col-12 col-md-8 ">
-    <a href="/2019/03/21/blurclickmousedown/" class="h4" style="font-weight: 700;">blur\click\mousedown</a>
-    
-      <p class="mb-1">input 中 blur 失去焦点事件与点击事件冲突的解决方法
-由于 blur 的事件优先于 click 事件，所以 blur 事件会先于 click 事件触发
-
-&lt;div class=&quot;my-autocomplete&quot;&gt;
-    &lt;input v-model=&quot;inputValue&quot;
-            @blur=&quot;hiddenSearch()&quot;
-            @focus=&quot;hiddenSearch()&quot;
-            type=&quot;text&quot;&gt...</p>
-    
-    
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-21
-        &nbsp;
-        
-            <i class="iconfont icon-cc-tag-more"></i>
-            
-                blur\click\mousedown&nbsp;
-            
-        
-      </p>
-    
-</div>
-</div>
-
-<div class="row mb-3">
-
-<div class="col-12 col-md-4 mb-3">
-    <a href="/2019/03/18/requestAnimationFrame返回顶部/" style="background-image: url(https://i.imgur.com/DbQMO3A.jpg);" class="img-fluid rounded z-depth-3 post-thumbnails" target="_self"></a>
-</div>
-
-<div class="col-12 col-md-8 ">
-    <a href="/2019/03/18/requestAnimationFrame返回顶部/" class="h4" style="font-weight: 700;">requestAnimationFrame返回顶部</a>
-    
-      <p class="mb-1">    goTop () {
-      const y = document.documentElement.scrollTop || document.body.scrollTop
-      if (y &gt; 0) {
-        requestAnimationFrame(this.goTop)
-        window.scrollTo(0, y - y / 8) // 第二个参数，值越大速度滚动的越慢
-      } else {
-        cancelAnimationFrame(this.goTop)
-      }
-    },
-...</p>
-    
-    
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-18
-        &nbsp;
-        
-      </p>
-    
-</div>
-</div>
-
-<div class="row mb-3">
-
-<div class="col-12 col-md-4 mb-3">
-    <a href="/2019/03/15/Mybatis/" style="background-image: url(https://i.imgur.com/nrFCOUB.jpg);" class="img-fluid rounded z-depth-3 post-thumbnails" target="_self"></a>
-</div>
-
-<div class="col-12 col-md-8 ">
-    <a href="/2019/03/15/Mybatis/" class="h4" style="font-weight: 700;">Mybatis 判断条件的坑</a>
-    
-      <p class="mb-1">Mybatis 判断条件的坑
-字符判断要如下格式（外层单引号，要判断的字符串双引号括起来）
-
-   &lt;if test=&#39;item.balanceType == &quot;U&quot; &#39;&gt;
-
-数字判断可直接判断
-
-&lt;if test=&quot;item.amtType == 1&quot;&gt;
-...</p>
-    
-    
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-15
-        &nbsp;
-        
-            <i class="iconfont icon-cc-tag-more"></i>
-            
-                Mybaitis&nbsp;
-            
-        
-      </p>
-    
-</div>
-</div>
-
-<div class="row mb-3">
-
-<div class="col-12 col-md-4 mb-3">
-    <a href="/2019/03/15/Hello/" style="background-image: url(https://i.imgur.com/nrFCOUB.jpg);" class="img-fluid rounded z-depth-3 post-thumbnails" target="_self"></a>
-</div>
-
-<div class="col-12 col-md-8 ">
-    <a href="/2019/03/15/Hello/" class="h4" style="font-weight: 700;">Hello</a>
-    
-      <p class="mb-1">...</p>
-    
-    
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-15
-        &nbsp;
-        
-      </p>
-    
-</div>
-</div>
- 
-<br><br>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  </main>
-
-<footer class="mt-5">
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/invom/Material-T" target="_blank"> <b>Material-T</b></a>
-  </div>
-</footer>
-
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
-  <script src="/js/main.js"></script>
-  
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            imgWidth: 50,
+            listData:[
+                {
+                    title:'首页',
+                    newUrl:'./home_new.png',
+                    oldUrl:'./home_old.png',
+                },
+                {
+                    title:'相册',
+                    newUrl:'./album_new.png',
+                    oldUrl:'./album_old.png',
+                },
+                {
+                    title:'登录页',
+                    newUrl:'./login_new.png',
+                    oldUrl:'./login_old.png',
+                },
+                {
+                    title:'画布',
+                    newUrl:'./canvas_new.png',
+                    oldUrl:'./canvas_old.png',
+                },
+                {
+                    title:'画布图片\n弹窗',
+                    newUrl:'./canvas_album_new.png',
+                    oldUrl:'./canvas_album_old.png',
+                }
+            ]
+        },
+        methods: {
+            onMouseMove(e) {
+                var rect = e.currentTarget.getBoundingClientRect();
+                this.imgWidth = (e.pageX - rect.left) / (rect.right - rect.left) * 100
+                console.log((e.pageX - rect.left) / (rect.right - rect.left) * 100)
+                console.log("track_onEnterTd_" + (rect.right - rect.left) + "_" + (rect.bottom - rect.top));
+            },
+            onChange(){
+                this.imgWidth = 50
+            }
+
+        }
+    });
+</script>
+<style>
+    body {
+        background-image: url("iPadOS\ 16.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+    }
+
+    .content {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .content-item {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+    }
+
+    .line {
+        height: 100%;
+        object-fit: contain;
+        z-index: 10;
+        position: absolute;
+
+    }
+
+    .paint {
+        width: 394.8px;
+        height: 798px;
+        position: relative;
+    }
+
+    .magicbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .new_image {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        width: 100%;
+
+    }
+
+    .old_image {
+        overflow: hidden;
+        position: relative;
+        /* width: 50%; */
+        height: 100%;
+        float: left;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    .title{
+        position: absolute;
+        left: 20%;
+        width: 80px;
+        text-align: center;
+        padding: 0 10px;
+        line-height: 36px;
+        background: rgba(0,0,0,.5);
+        border-radius: 6px;
+        font-size: 16px;
+        color: #fff;
+    }
+</style>
+
 </html>
