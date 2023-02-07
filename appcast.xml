@@ -8,7 +8,7 @@
             <sparkle:version>1.0</sparkle:version>
             <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>12.3</sparkle:minimumSystemVersion>
-            <enclosure url="https://raw.githubusercontent.com/Zzy0706/Zzy0706.github.io/master/Sparkle_Demo.dmg" length="1158226" type="application/octet-stream" sparkle:edSignature="nzH5c38TvY1Ittms96AQ6vvovgzx0Wo0tCCM+/6tWYI="/>
+            <enclosure url="https://raw.githubusercontent.com/Zzy0706/Zzy0706.github.io/master/Sparkle_Demo.dmg" length="1094789" type="application/octet-stream" sparkle:edSignature="nhd42KZ+2xw5FBHKAH4v9aoD8j/cuYPIbGQz4N5CPj0ub/PgKozdnbRBYT+V1qlL+3ho47vca/tpZeXOdhY1Cg=="/>
         </item>
     </channel>
 </rss>
